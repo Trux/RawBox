@@ -1,24 +1,16 @@
-import wx
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 
+# simple.py
 
-class MainWindow(wx.Frame):
-    def __init__(self, parent, title):
-        wx.Frame.__init__(self, parent, title=title, size=(500,400))
-        
-        # Setting up the menu.
-        filemenu = wx.Menu()
+import sys
+from PySide import QtGui
 
-        # wx.ID_ABOUT and wx.ID_EXIT are standard IDs provided by wxWidgets.
-        filemenu.Append(wx.ID_ABOUT, "&About"," Information about this program")
-        filemenu.AppendSeparator()
-        filemenu.Append(wx.ID_EXIT,"E&xit"," Terminate the program")
+app = QtGui.QApplication(sys.argv)
 
-        # Creating the menubar.
-        menuBar = wx.MenuBar()
-        menuBar.Append(filemenu,"&File") # Adding the "filemenu" to the MenuBar
-        self.SetMenuBar(menuBar)  # Adding the MenuBar to the Frame content.
-        self.Show(True)
+wid = QtGui.QWidget()
+wid.resize(250, 150)
+wid.setWindowTitle('Simple')
+wid.show()
 
-app = wx.App(False)
-frame = MainWindow(None, "Rawbox")
-app.MainLoop()
+sys.exit(app.exec_())
